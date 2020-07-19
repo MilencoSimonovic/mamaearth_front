@@ -29,7 +29,6 @@ function ProfileEcit(props) {
     return(
         <>
             <GridContainer className={classes.content}>
-                <p></p>
                 <Header backIcon={<ArrowBackIcon/>} back={true} title="Your Earnings"/>
                 <div className={classes.mainContent}>
                     <div className="header">
