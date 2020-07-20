@@ -29,7 +29,7 @@ function ProfileEcit(props) {
     return(
         <>
             <GridContainer className={classes.content}>
-                <Header backIcon={<ArrowBackIcon/>} back={true} title="Your Profile"/>
+                <Header backIcon={<ArrowBackIcon/>} back={true} title="Your Profile" {...props}/>
                 <div className={classes.mainContent}>
                     <div className={classes.userInfoForm}>
                         <TextField 

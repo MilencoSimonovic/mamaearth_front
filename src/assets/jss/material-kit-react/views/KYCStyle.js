@@ -42,7 +42,9 @@ const influenceStyle = {
             '& .kyc-list-title': {
                 flexGrow: 5,
                 textTransform: 'none',
-                color: 'rgb(125 141 171)'
+                color: 'rgb(125 141 171)',
+                margin: 0,
+                fontWeight: 400
             },
             '& .kyc-list-status': {
                 padding: '3px 8px',

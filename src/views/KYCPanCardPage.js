@@ -46,7 +46,7 @@ function KYCPANCard(props) {
         <>
             
             <GridContainer className={classes.content}>
-                <Header backIcon={<ArrowBackIcon/>} title="KYC"/>
+                <Header backIcon={<ArrowBackIcon/>} back={true} title="KYC" {...props}/>
                 <div className={classes.headerPart}>
                     <p>Step 1 of 2</p>
                     <Typography variant="h6" className="header-title">

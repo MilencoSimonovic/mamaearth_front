@@ -42,28 +42,31 @@ function KYC(props) {
                     <div className="kyc-list-item">
                         <img src={require('assets/img/file-default.png')} alt="default"/>
                         <div style={{flexGrow: 5}}>
-                            <Typography variant="p" className="kyc-list-title">
+                            <p className="kyc-list-title">
                                 Upload your
-                            </Typography>
-                            <br />
-                            <Typography variant="p" className="kyc-list-title">
+                            </p>
+                            <p className="kyc-list-title">
                                 PAN card
-                            </Typography>
+                            </p>
                         </div>
-                        <ArrowForwardIosIcon className="kyc-list-icon"/>
+                        <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={() => {props.history.push('/kyc-pan')}}>
+                            <ArrowForwardIosIcon className="kyc-list-icon"/>
+                        </IconButton>
                     </div>
                     <div className="kyc-list-item">
                         <img src={require('assets/img/bank-image.png')} alt="bank"/>
                         <div style={{flexGrow: 5}}>
-                            <Typography variant="p" className="kyc-list-title">
+                            <Typography variant="subtitle1" className="kyc-list-title">
                                 Update your
                             </Typography>
-                            <br />
-                            <Typography variant="p" className="kyc-list-title">
+                            <Typography variant="subtitle1" className="kyc-list-title">
                                 bank details
                             </Typography>
                         </div>
-                        <ArrowForwardIosIcon className="kyc-list-icon"/>
+                        <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={() => {props.history.push('/kyc-bank')}}>
+                            <ArrowForwardIosIcon className="kyc-list-icon"/>
+                        </IconButton>
+                        
                     </div>
                 </div>
                 <div className={classes.footerPart}>

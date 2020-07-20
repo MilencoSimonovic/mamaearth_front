@@ -4,6 +4,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 // @material-ui/core icon
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 // core components
@@ -13,67 +17,96 @@ import Header from "components/Header/Header.js";
 // style 
 import styles from 'assets/jss/material-kit-react/views/KYCPanStyle.js';
 const useStyles = makeStyles(styles);
+const bank_type = [
+    {
+        id: 1,
+        bank_name: 'Bank1'
+    },
+    {
+        id: 2,
+        bank_name: 'Bank2'
+    },
+    {
+        id: 3,
+        bank_name: 'Bank3'
+    },
+    {
+        id: 4,
+        bank_name: 'Bank4'
+    }
+]
 
 function KYCBank(props) {
     const classes = useStyles();
-    const [cardNumber, setCardNumber] = React.useState("");
+    const [accountName, setAccountName] = React.useState("");
+    const [accountNumber, setAccountNumber] = React.useState("");
+    const [bankCode, setBankCode] = React.useState("");
     const [address, setAddress] = React.useState("");
-    const [preveiwImage, setPreviewImage] = React.useState(null);
-    const [panImage, setPanImage] = React.useState(null);
+    const [bankType, setBankType] = React.useState("");
 
-    function panImageChange(e) {
-        e.preventDefault();
-        let reader = new FileReader();
-        let newFile = e.target.files[0];
-        reader.onloadend = () => {
-            setPreviewImage(reader.result);
-            setPanImage(newFile);
-        };
-        reader.readAsDataURL(newFile);
+    function chnageBankType(e) {
+        setBankType(e.target.value);
     }
     function uploadData() {
-        var data = {
-            card_number: cardNumber,
-            address: address,
-            image: panImage
-        }
-        console.log(data);
+        
     }
     React.useEffect(() => {
 
     }, [])
-    return(
+    return (
         <>
             <GridContainer className={classes.content}>
-                <Header backIcon={<ArrowBackIcon/>} title="KYC"/>
+                <Header backIcon={<ArrowBackIcon />} back={true} title="KYC" {...props}/>
                 <div className={classes.headerPart}>
-                    <p>Step 1 of 2</p>
+                    <p>Step 2 of 2</p>
                     <Typography variant="h6" className="header-title">
-                        Upload your PAN card
+                        Update your bank details
                     </Typography>
                 </div>
                 <div className={classes.mainContent}>
-                    <label className="pan-card-upload" htmlFor="pan-card">
-                        {preveiwImage !== null ? (
-                            <img src={preveiwImage} alt="pan-preview" className="preveiw-image"/>
-                        ) : (
-                            <>
-                                <img src={require('assets/img/file-default.png')} alt="pan-card" />
-                                <p>Upload the image here</p>
-                            </>
-                        )}
-                        
-                    </label>
-                    <input type="file" id="pan-card" style={{display: 'none'}} onChange={panImageChange}/>
                     <div className={classes.userInfoForm}>
-                        <TextField 
-                            id="card-number"
-                            label="PAN card number"
+                        <TextField
+                            id="hold-name"
+                            label="Account holder name"
                             variant="outlined"
                             fullWidth
                             className="pan-input"
-                            value={cardNumber}
-                            onChange={(e) => setCardNumber(e.target.value)}
+                            value={accountName}
+                            onChange={(e) => setAccountName(e.target.value)}
+                        />
+                        <FormControl variant="outlined" className="pan-input" fullWidth>
+                            <InputLabel id="demo-simple-select-outlined-label">Choose your Bank</InputLabel>
+                            <Select
+                                labelId="demo-simple-select-outlined-label"
+                                id="demo-simple-select-outlined"
+                                value={bankType}
+                                onChange={chnageBankType}
+                                label="Choose your Bank"
+                            >
+                                {bank_type.map((item, i) => {
+                                    return(
+                                        <MenuItem key={i} value={item.id}>{item.bank_name}</MenuItem>
+                                    )
+                                })}
+                            </Select>
+                        </FormControl>
+                        <TextField
+                            id="account-number"
+                            label="Bank account number"
+                            variant="outlined"
+                            fullWidth
+                            className="pan-input"
+                            value={accountNumber}
+                            onChange={(e) => setAccountNumber(e.target.value)}
+                        />
+                        <TextField
+                            id="bank-code"
+                            label="Bank IFSC code"
+                            variant="outlined"
+                            fullWidth
+                            className="pan-input"
+                            value={bankCode}
+                            onChange={(e) => setBankCode(e.target.value)}
                         />
                         <TextField
                             id="address"
@@ -89,7 +122,7 @@ function KYCBank(props) {
                     </div>
                 </div>
                 <div className={classes.footerPart}>
-                    <Button 
+                    <Button
                         fullWidth
                         variant="contained"
                         color="primary"

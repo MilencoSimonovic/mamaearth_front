@@ -25,6 +25,10 @@ function Header(props) {
     const classes = useStyles();
     const [searchView, setSearchView] = React.useState(false);
 
+    const goBack = () => {
+        props.history.goBack();
+    }
+
     React.useEffect(() => {
     }, [])
     return(
@@ -41,7 +45,7 @@ function Header(props) {
                 ) : (
                     <>
                         {back && (
-                            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+                            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={() => goBack()}>
                                 {backIcon}
                             </IconButton>
                         )}

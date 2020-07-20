@@ -11,7 +11,12 @@ import ProfilePage from 'views/ProfilePage.js';
 import ProfileEditPage from 'views/ProfileEditPage.js';
 import EarnPage from 'views/EarnPage.js';
 import KYCPage from 'views/KYCPage.js';
-
+import KYCBankPage from 'views/KYCBankPage.js';
+import KYCPanCardPage from 'views/KYCPanCardPage.js';
+import KYCProgressPage from 'views/KYCProgressPage.js';
+import CampaignRegisterPage from 'views/CampaignRegisterPage.js';
+import HistoryPage from 'views/HistoryPage.js';
+import WidthrawPage from 'views/WidthrawPage.js';
 import "assets/scss/material-kit-react.scss?v=1.9.0";
 
 const BasicRouters = () => (
@@ -25,6 +30,12 @@ const BasicRouters = () => (
       <Route path='/profile-edit' component={ProfileEditPage}/>
       <Route path='/earn' component={EarnPage}/>
       <Route path='/kyc' component={KYCPage}/>
+      <Route path='/kyc-bank' component={KYCBankPage}/>
+      <Route path="/kyc-pan" component={KYCPanCardPage}/>
+      <Route path="/kyc-progress" component={KYCProgressPage} />
+      <Route path="/campaign-register" component={CampaignRegisterPage} />
+      <Route path="/history" component={HistoryPage} />
+      <Route path="/widthdraw" component={WidthrawPage} />
     </Switch>
   </Router>
 );

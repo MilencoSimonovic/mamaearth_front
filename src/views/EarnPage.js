@@ -1,12 +1,12 @@
 import React from 'react';
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-import ErrorIcon from '@material-ui/icons/Error';
 // @material-ui/core icon
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
 import HistoryIcon from '@material-ui/icons/History';
+import ErrorIcon from '@material-ui/icons/Error';
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
 import Header from "components/Header/Header.js";
@@ -29,7 +29,7 @@ function ProfileEcit(props) {
     return(
         <>
             <GridContainer className={classes.content}>
-                <Header backIcon={<ArrowBackIcon/>} back={true} title="Your Earnings"/>
+                <Header backIcon={<ArrowBackIcon/>} back={true} title="Your Earnings" {...props}/>
                 <div className={classes.mainContent}>
                     <div className="header">
                         <ErrorIcon />

@@ -78,7 +78,9 @@ function Profile(props) {
                 </List>
                 </div>
             </div>
-            <Footer link="profile" pageRouter={props.history}/>
+            <div style={{padding: '0px 20px 10px'}}>
+                <Footer link="profile" pageRouter={props.history}/>
+            </div>
         </div>
     )
 }
