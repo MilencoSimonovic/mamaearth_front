@@ -1,4 +1,6 @@
 import React from 'react';
+//api 
+import Axios from 'axios';
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from '@material-ui/core/TextField';
@@ -19,12 +21,44 @@ function ProfileEcit(props) {
     const [email, setEmail] = React.useState('');
     const [mobileNumber, setMobileNumber] = React.useState('');
     const [address, setAddress] = React.useState('');
+    const [userInfo, setUserInfo] = React.useState({});
 
     function uploadData() {
-        
+        userInfo.name = fullName;
+        userInfo.email = email;
+        userInfo.phone = mobileNumber;
+        userInfo.address = address;
+        const data = {
+            uid: localStorage.user_id,
+            updateData:{
+                "info": userInfo
+            }
+        }
+        Axios.post(`${window.$host_url}account/update`, data)
+            .then(res => {
+                console.log(res);
+            })
+            .catch(err => {
+                console.log(err)
+            })
     }
     React.useEffect(() => {
-        
+        if(localStorage.user_id === undefined) {
+            window.location.href="/register";
+        }
+        else {
+            Axios.post(`${window.$host_url}loginCheck`, {uid: localStorage.user_id})
+            .then(res => {
+                setUserInfo(res.data.user.info)
+                setFullName(res.data.user.info.name);
+                setEmail(res.data.user.info.email);
+                setMobileNumber(res.data.user.info.phone);
+                setAddress(res.data.user.info.address);
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        }
     }, [])
     return(
         <>

@@ -17,12 +17,16 @@ const useStyles = makeStyles(styles);
 
 function KYC(props) {
     const classes = useStyles();
+    // const [userData, setUserData] = React.useState('');
 
     React.useEffect(() => {
+        if(localStorage.user_id === undefined) {
+            window.location.href="/register";
+        }
     }, [])
     return(
         <>
-            <AppBar position="static" color="default" className={classes.appBar}>
+            <AppBar position="static" color="default" className={classes.appBar} onClick={() => {props.history.goBack()}}>
                 <Toolbar>
                     <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
                         <ArrowBackIcon />

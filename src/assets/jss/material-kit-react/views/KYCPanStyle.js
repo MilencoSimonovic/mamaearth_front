@@ -28,6 +28,7 @@ const influenceStyle = {
     },
     mainContent: {
         flex: '1',
+        overflow: 'auto',
         marginTop: "20px",
         padding: '20px 5px 0px',
         '& .pan-card-upload': {

@@ -1,17 +1,18 @@
 const campaignStyle = {
     container: {
-        padding: '10px 20px',
-        background: 'white',
         height: "100vh",
         display: "flex",
-        flexDirection: 'column'
+        flexDirection: 'column',
+        background: 'rgb(245 247 249)'
     },
     content: {
+        padding: '10px 20px',
         marginTop: '60px',
         flex: '1',
         overflow: 'auto'
     },
     campaignTab: {
+        background: 'white',
         '& .MuiTab-wrapper': {
             textTransform: 'none',
             lineHeight: "13px"

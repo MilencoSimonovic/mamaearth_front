@@ -5,6 +5,8 @@ import Button from '@material-ui/core/Button';
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
 // import GridItem from "components/Grid/GridItem.js";
+//api 
+import axios from 'axios';
 // style 
 import styles from 'assets/jss/material-kit-react/views/influencPage.js';
 const useStyles = makeStyles(styles);
@@ -19,7 +21,7 @@ function Influence(props) {
 
     function categorySelect(value) {
         var category_list = categroyList;
-        if(!category_list.includes(value)){
+        if (!category_list.includes(value)) {
             category_list.push(value);
         }
         else {
@@ -31,18 +33,33 @@ function Influence(props) {
         setEvent(!event);
         setCategoryList(category_list);
     }
+    function registerUser() {
+        const data = {
+            uid: props.user_id,
+            updateData: {
+                "categories": categroyList
+            }
+        }
+        axios.post(`${window.$host_url}account/update`, data)
+            .then(res => {
+                props.stepChange(2)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
     React.useEffect(() => {
     }, [])
-    return(
+    return (
         <GridContainer className={classes.content}>
             <div className={classes.headerPart}>
                 <h2 className="title">What is your area of influence</h2>
-                <div className="sub-title">Select atleast 3 category</div>
+                <div className="sub-title">Select at least 3 category</div>
             </div>
             <div className={classes.mainContent}>
                 {categroy.map(function (item, i) {
-                    return(
-                        <div 
+                    return (
+                        <div
                             className={`category-item ${categroyList.includes(item) ? "category-item-select" : ""}`}
                             onClick={() => categorySelect(item)}
                             key={i}
@@ -53,12 +70,13 @@ function Influence(props) {
                 })}
             </div>
             <div className={classes.footerPart}>
-                <Button 
+                <Button
                     fullWidth
                     variant="contained"
                     color="primary"
                     className='footer-button'
-                    onClick={() =>props.homePage.push('/')}
+                    onClick={() => registerUser()}
+                    disabled={categroyList.length < 3}
                 >
                     LETS GO
                 </Button>

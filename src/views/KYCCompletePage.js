@@ -22,9 +22,9 @@ function KYCComplete(props) {
     }, [])
     return(
         <>
-            <AppBar position="static" color="default" className={classes.appBar}>
+            <AppBar position="static" color="default" className={classes.appBar} >
                 <Toolbar>
-                    <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+                    <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={() => {props.history.goBack()}}>
                         <ArrowBackIcon />
                     </IconButton>
                     <Typography variant="h6" className="app-title">
@@ -42,30 +42,32 @@ function KYCComplete(props) {
                     <div className="kyc-list-item">
                         <img src={require('assets/img/file-default.png')} alt="default"/>
                         <div style={{flexGrow: 5}}>
-                            <Typography variant="p" className="kyc-list-title">
+                            <Typography variant="subtitle1" className="kyc-list-title">
                                 Upload your
                             </Typography>
-                            <br />
-                            <Typography variant="p" className="kyc-list-title">
+                            <Typography variant="subtitle1" className="kyc-list-title">
                                 PAN card
                             </Typography>
                         </div>
                         <div className="kyc-list-status">In process</div>
-                        <ArrowForwardIosIcon className="kyc-list-icon"/>
+                        <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={() => {props.history.push('/kyc-pan')}}>
+                            <ArrowForwardIosIcon className="kyc-list-icon"/>
+                        </IconButton>
                     </div>
                     <div className="kyc-list-item">
                         <img src={require('assets/img/bank-image.png')} alt="bank"/>
                         <div style={{flexGrow: 5}}>
-                            <Typography variant="p" className="kyc-list-title">
+                            <Typography variant="subtitle1" className="kyc-list-title">
                                 Update your
                             </Typography>
-                            <br />
-                            <Typography variant="p" className="kyc-list-title">
+                            <Typography variant="subtitle1" className="kyc-list-title">
                                 bank details
                             </Typography>
                         </div>
                         <div className="kyc-list-status">In process</div>
-                        <ArrowForwardIosIcon className="kyc-list-icon"/>
+                        <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={() => {props.history.push('/kyc-bank')}}>
+                            <ArrowForwardIosIcon className="kyc-list-icon"/>
+                        </IconButton>
                     </div>
                 </div>
                 <div className={classes.footerPart}>

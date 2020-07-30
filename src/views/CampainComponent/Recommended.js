@@ -11,37 +11,26 @@ const useStyles = makeStyles(styles);
 function Recommended(props) {
     const classes = useStyles();
     React.useEffect(() => {
-        console.log(props.search);
+
     }, [props.search])
-    return(
+    return (
         <div className={classes.campaignContent}>
-            <div className="campaign-list">
-                <img src={require('assets/img/1-1.jpg')} alt="aour"/>
-                <div className="campaign-detail">
-                    <p>Get $1000</p>
-                    <div style={{flexGrow: 5}}></div>
-                    <p style={{display: 'flex', alignItems: 'center'}}><ScheduleIcon/> 30days</p>
-                </div>
-                <p>Hello, this is campaign Hello, this is campaign Hello, this is campaign Hello, this is campaign Hello, this is campaign Hello, this is campaign </p>
-            </div>
-            <div className="campaign-list">
-                <img src={require('assets/img/1-2.jpg')} alt="aour"/>
-                <div className="campaign-detail">
-                    <p>Get $1000</p>
-                    <div style={{flexGrow: 5}}></div>
-                    <p style={{display: 'flex', alignItems: 'center'}}><ScheduleIcon/> 30days</p>
-                </div>
-                <p>Hello, this is campaign Hello, this is campaign Hello, this is campaign Hello, this is campaign Hello, this is campaign Hello, this is campaign </p>
-            </div>
-            <div className="campaign-list">
-                <img src={require('assets/img/1-3.jpg')} alt="aour"/>
-                <div className="campaign-detail">
-                    <p>Get $1000</p>
-                    <div style={{flexGrow: 5}}></div>
-                    <p style={{display: 'flex', alignItems: 'center'}}><ScheduleIcon/> 30days</p>
-                </div>
-                <p>Hello, this is campaign Hello, this is campaign Hello, this is campaign Hello, this is campaign Hello, this is campaign Hello, this is campaign </p>
-            </div>
+            {props.campaignList.map((item, i) => {
+                return (
+                    <div className="campaign-list" key={i}>
+                        <img src={item.image_url} alt="aour" />
+                        <div className="campaign-detail">
+                            <p>Get ₹{item.price}</p>
+                            <div style={{ flexGrow: 5 }}></div>
+                            <p style={{ display: 'flex', alignItems: 'center' }}><ScheduleIcon /> {Math.ceil((new Date(item.end_at) - new Date()) / (1000 * 60 * 60 * 24))} days</p>
+                        </div>
+                        <p>{item.description} </p>
+                    </div>
+                )
+            })}
+            {props.campaignList.length === 0 && (
+                <p style={{ marginTop: 10, textAlign: 'center' }}>There is not a campaign that matched to with your categories</p>
+            )}
         </div>
     )
 }

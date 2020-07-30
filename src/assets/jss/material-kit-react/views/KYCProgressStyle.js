@@ -23,6 +23,10 @@ const KYCProgressStyle = {
         },
         '& *': {
             color: '#324467'
+        },
+        '& .pan-details': {
+            width: '100%',
+            padding: '10px'
         }
     },
     footer: {

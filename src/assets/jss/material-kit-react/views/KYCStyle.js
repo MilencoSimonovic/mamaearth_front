@@ -36,7 +36,7 @@ const influenceStyle = {
             padding: '20px',
             marginTop: '10px',
             '& img': {
-                width: "60px",
+                width: "50px",
                 marginRight: '40px'
             },
             '& .kyc-list-title': {
@@ -47,7 +47,9 @@ const influenceStyle = {
                 fontWeight: 400
             },
             '& .kyc-list-status': {
-                padding: '3px 8px',
+                marginRight: '25px',
+                fontSize: '12px',
+                padding: '0px 8px',
                 background: 'rgb(255 235 182)',
                 borderRadius: "50px",
                 color: 'rgb(157 135 74)'
@@ -61,7 +63,7 @@ const influenceStyle = {
     },
     footerPart: {
         padding: 10,
-        
+
     }
 }
 

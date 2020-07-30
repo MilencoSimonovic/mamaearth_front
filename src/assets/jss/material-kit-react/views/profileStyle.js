@@ -33,6 +33,12 @@ const profilStyle = {
             '& svg': {
                 color: 'red'
             }
+        },
+        '& .profile-edit': {
+            '& svg': {
+                fontSize: '18px',
+                color: '#d6cece'
+            }
         }
     },
     pendingCompaign: {
@@ -53,14 +59,21 @@ const profilStyle = {
         }
     },
     profileList: {
-        padding: '20px 20px 20px 30px',
+        padding: '13px 20px 10px 30px',
+        '& svg': {
+            fontSize: '14px',
+            '& path': {
+                color: '#d6cece'
+            }
+        },
         '& .MuiListItemIcon-root': {
-            fontWeight: "600",
-            color: 'rgb(77 97 137)'
+            fontWeight: "500",
+            color: 'rgb(77 97 137)',
+            minWidth: '0px'
         },
         '& .MuiListItemText-root span': {
             color: 'rgb(0 174 239)',
-            fontSize: '22px',
+            fontSize: '20px',
             marginLeft: '10px'
         }
     }

@@ -1,12 +1,12 @@
 const homeStyle = {
     container: {
-        padding: '10px 20px',
         background: 'white',
         height: "100vh",
         display: "flex",
         flexDirection: 'column'
     },
     header: {
+        padding: '10px 20px',
         display: "flex",
         justifyContent: "center",
         alignItems: 'center',
@@ -28,16 +28,23 @@ const homeStyle = {
         }
     },
     content: {
+        padding: '0px 20px',
         marginTop: '20px',
         flex: '1',
         overflow: 'auto'
     },
     userList: {
-        display: "flex",
         width: "100%",
         overflow: "auto",
+        display: 'flex',
         "& .user-item-list": {
-            margin: '0px 10px'
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            margin: '0px 10px',
+            '& p': {
+                textAlign: 'center'
+            }
         }
     },
     recommend: {
@@ -48,7 +55,10 @@ const homeStyle = {
         },
         '& .recommend-carousel': {
             borderRadius: '15px',
-            overflow: "hidden"
+            overflow: "hidden",
+            '& .carousel .slide': {
+                background: 'white'
+            }
         },
         '& .recommend-details': {
             display: "flex",
@@ -84,8 +94,14 @@ const homeStyle = {
                 width: "50%",
                 padding: '0px 5px',
                 '& img': {
-                    borderRadius: '10px',
                     width: '100%'
+                },
+                '& .image-view': {
+                    borderRadius: '10px',
+                    width: '100%',
+                    height: '120px',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundSize: '100% 100%'
                 }
             },
             '& .campaign-detail': {
@@ -96,6 +112,13 @@ const homeStyle = {
                     margin: 0
                 }
             }
+        }
+    },
+    videoModal: {
+        '& .MuiDialog-paper': {
+            margin: 0,
+            maxWidth: '100%',
+            width: '100%'
         }
     }
 }

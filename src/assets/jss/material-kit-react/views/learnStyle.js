@@ -1,7 +1,6 @@
 const learnStyle = {
     container: {
-        padding: '10px 20px',
-        background: 'white',
+        background: 'rgb(245 247 249)',
         height: "100vh",
         display: "flex",
         flexDirection: 'column'
@@ -17,7 +16,8 @@ const learnStyle = {
         borderRadius: "10px",
         border: "1px solid #eae9e9",
         boxShadow: "0px 0px 3px #eae9e9",
-        marginTop: "20px",
+        background: 'white',
+        marginBottom: "20px",
         '& .campaign-header': {
             display: 'flex',
             '& img': {

@@ -45,7 +45,7 @@ const registerStyle = {
             fontWeight: "300",
             textAlign: "center",
             color: 'white',
-            lineHeight: "12px"
+            lineHeight: "20px"
         }
     },
     alreadyLogin: {
